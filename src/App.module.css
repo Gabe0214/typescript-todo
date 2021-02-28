@@ -1,0 +1,8 @@
+:global(*) {
+	margin: 0;
+	padding: 0;
+}
+
+.primary-color {
+	background-color: #af7eeb;
+}
