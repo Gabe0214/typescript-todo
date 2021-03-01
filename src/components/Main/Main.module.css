@@ -1,0 +1,11 @@
+.main-view {
+	background-color: #fff;
+}
+
+.main-view .inner-content {
+	margin: 0 1.5rem;
+	padding: 0 1.5rem;
+}
+
+/* .main-view .inner-content ul {
+} */

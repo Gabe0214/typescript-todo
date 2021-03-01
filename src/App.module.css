@@ -1,12 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
 :global(*) {
 	margin: 0;
 	padding: 0;
+	box-sizing: border-box;
 }
 
 :global(body) {
 	background-color: #e3e9ff;
+	font-family: 'Roboto', sans-serif;
 }
 
 .primary-color {
 	background-color: #af7eeb;
+}
+
+:global(ul) {
+	list-style: none;
 }
