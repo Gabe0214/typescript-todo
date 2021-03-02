@@ -11,6 +11,7 @@ export type TodoType = {
 
 const Main: React.FC = () => {
 	const [ todos, setTodos ] = useState<TodoType[]>(allTask);
+	const [ input, setInput ] = useState({ show: false, text: '' });
 
 	const markCompleted = (todo: TodoType) => {
 		const newTodos = todos.filter((item) => {
@@ -28,17 +29,31 @@ const Main: React.FC = () => {
 		setTodos(removedTodo);
 	};
 
-	console.log(todos);
+	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		const { name, value } = e.target;
+
+		setInput({ ...input, [name]: value });
+	};
+
+	console.log(input.text);
 	return (
-		<div className={styles['main-view']}>
-			<div className='inner-content'>
-				<ul className={styles['inner-content']}>
-					{todos.map((item) => (
-						<List todo={item} completed={() => markCompleted(item)} key={item.id} remove={() => remove(item.id)} />
-					))}
-				</ul>
+		<React.Fragment>
+			<div className={styles['main-view']}>
+				<div className='inner-content'>
+					<ul className={styles['inner-content']}>
+						{todos.map((item) => (
+							<List todo={item} completed={() => markCompleted(item)} key={item.id} remove={() => remove(item.id)} />
+						))}
+					</ul>
+					<div className={styles['btn-container']}>
+						<button className={styles['btn']}>+ New Task</button>
+					</div>
+				</div>
 			</div>
-		</div>
+			<div className={styles['input-container']}>
+				<input type='text' name='text' placeholder={'New Task'} value={input.text} onChange={handleChange} />
+			</div>
+		</React.Fragment>
 	);
 };
 
