@@ -1,24 +1,30 @@
 import React, { useState } from 'react';
 import { TodoType } from '../Main/Main';
 import styles from './List.module.css';
+import { BsTrash } from 'react-icons/bs';
+
 type Props = {
 	todo: TodoType;
+	completed: () => void;
+	remove: () => void;
 };
 
-export const List: React.FC<Props> = ({ todo }) => {
+export const List: React.FC<Props> = ({ todo, completed, remove }) => {
 	const [ checked, setChecked ] = useState(false);
 
 	return (
-		<div className={styles['task-container']} onClick={() => setChecked(!checked)}>
-			{/* <input
-				className={styles['check-custom']}
-				type='radio'
-				id={`${todo.id}`}
-				checked={checked}
-				onClick={() => setChecked(!checked)}
-			/> */}
+		<div
+			className={styles['task-container']}
+			onClick={() => {
+				setChecked(!checked);
+				completed();
+			}}
+		>
 			<span className={!checked ? styles['check-custom'] : `${styles['check-custom']} ${styles['checked']}`} />
-			<label>{todo.task}</label>
+			<label className={todo.completed ? `${styles['crossed']}` : ''}>{todo.task}</label>
+			<span className={styles['trash-icon']} onClick={remove}>
+				{todo.completed ? <BsTrash color={'#9ea4c3'} /> : ''}
+			</span>
 		</div>
 	);
 };
