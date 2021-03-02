@@ -20,8 +20,6 @@ const Main: React.FC = () => {
 			}
 			return item;
 		});
-
-		console.log(newTodos);
 	};
 
 	const remove = (id: number) => {
