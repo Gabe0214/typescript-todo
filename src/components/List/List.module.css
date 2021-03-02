@@ -46,3 +46,10 @@
 	top: 50%;
 	left: 0;
 }
+
+.trash-icon {
+	display: flex;
+	align-items: center;
+	flex: 1;
+	justify-content: center;
+}

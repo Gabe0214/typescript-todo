@@ -11,6 +11,7 @@ export type TodoType = {
 
 const Main: React.FC = () => {
 	const [ todos, setTodos ] = useState<TodoType[]>(allTask);
+
 	const markCompleted = (todo: TodoType) => {
 		const newTodos = todos.filter((item) => {
 			if (item.id == todo.id) {
@@ -22,12 +23,19 @@ const Main: React.FC = () => {
 		console.log(newTodos);
 	};
 
+	const remove = (id: number) => {
+		const removedTodo = todos.filter((item) => item.id != id);
+		setTodos(removedTodo);
+	};
+
 	console.log(todos);
 	return (
 		<div className={styles['main-view']}>
 			<div className='inner-content'>
 				<ul className={styles['inner-content']}>
-					{todos.map((item) => <List todo={item} completed={() => markCompleted(item)} key={item.id} />)}
+					{todos.map((item) => (
+						<List todo={item} completed={() => markCompleted(item)} key={item.id} remove={() => remove(item.id)} />
+					))}
 				</ul>
 			</div>
 		</div>
