@@ -49,3 +49,17 @@
 	font-family: 'Roboto', sans-serif;
 	font-weight: 400;
 }
+
+@media screen and (min-width: 769px) {
+	.main-view {
+		max-width: 1270px;
+		margin: 2rem auto 0 auto;
+		width: 80%;
+	}
+
+	.input-container {
+		max-width: 1270px;
+		margin: 2rem auto 0 auto;
+		width: 80%;
+	}
+}

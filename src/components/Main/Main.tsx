@@ -14,14 +14,12 @@ const Main: React.FC = () => {
 	const [ newTodo, setNewTodo ] = useState({ id: 0, task: '', completed: false });
 
 	const markCompleted = (todo: TodoType) => {
-		const newTodos = todos.filter((item) => {
+		todos.filter((item) => {
 			if (item.id == todo.id) {
 				item.completed = !item.completed;
 			}
 			return item;
 		});
-
-		console.log(newTodos);
 	};
 
 	const remove = (id: number) => {

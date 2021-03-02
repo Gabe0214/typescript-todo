@@ -17,3 +17,15 @@ nav .inner-nav-content .title-nav {
 	text-align: center;
 	font-weight: 500;
 }
+
+@media screen and (min-width: 769px) {
+	nav {
+		padding: 1.2rem 0;
+	}
+
+	nav .inner-nav-content {
+		max-width: 1270px;
+		margin: 0 auto;
+		width: 80%;
+	}
+}
