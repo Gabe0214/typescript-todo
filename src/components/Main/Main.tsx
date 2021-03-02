@@ -11,7 +11,7 @@ export type TodoType = {
 
 const Main: React.FC = () => {
 	const [ todos, setTodos ] = useState<TodoType[]>(allTask);
-	const [ input, setInput ] = useState({ show: false, text: '' });
+	const [ newTodo, setNewTodo ] = useState({ id: 0, task: '', completed: false });
 
 	const markCompleted = (todo: TodoType) => {
 		const newTodos = todos.filter((item) => {
@@ -32,10 +32,12 @@ const Main: React.FC = () => {
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = e.target;
 
-		setInput({ ...input, [name]: value });
+		setNewTodo({ ...newTodo, [name]: value });
 	};
 
-	console.log(input.text);
+	const addTodo = (todo: TodoType) => {
+		setTodos([ ...todos, { ...todo, id: Math.random() } ]);
+	};
 	return (
 		<React.Fragment>
 			<div className={styles['main-view']}>
@@ -46,12 +48,14 @@ const Main: React.FC = () => {
 						))}
 					</ul>
 					<div className={styles['btn-container']}>
-						<button className={styles['btn']}>+ New Task</button>
+						<button className={styles['btn']} onClick={() => addTodo(newTodo)}>
+							+ New Task
+						</button>
 					</div>
 				</div>
 			</div>
 			<div className={styles['input-container']}>
-				<input type='text' name='text' placeholder={'New Task'} value={input.text} onChange={handleChange} />
+				<input type='text' name='task' placeholder={'New Task'} value={newTodo.task} onChange={handleChange} />
 			</div>
 		</React.Fragment>
 	);

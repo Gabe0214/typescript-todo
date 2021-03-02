@@ -34,3 +34,18 @@
 	background-color: #8962b9;
 	transition: background-color 0.6s ease;
 }
+
+.input-container {
+	margin: 2rem 1.5rem 0rem 1.5rem;
+}
+
+.input-container input {
+	width: 100%;
+	padding: 0 1rem;
+	height: 5vh;
+	border: none;
+	font-size: 1rem;
+	color: #8f98bc;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+}
