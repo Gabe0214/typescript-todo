@@ -33,4 +33,16 @@
 .task-container label {
 	color: #8f98bc;
 	font-size: 1.2rem;
+	position: relative;
+}
+
+.task-container .crossed::after {
+	content: "";
+	display: block;
+	position: absolute;
+	background-color: #dfe5f8;
+	width: 100%;
+	height: 3px;
+	top: 50%;
+	left: 0;
 }

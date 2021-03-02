@@ -1,6 +1,6 @@
 import { TodoType } from '../Main/Main';
 
-export const allTask: TodoType[] = [
+export let allTask: TodoType[] = [
 	{
 		id: Math.random(),
 		task: 'Walk the dog',
